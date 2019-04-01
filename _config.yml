@@ -33,10 +33,10 @@ kramdown:
 ####################################
 #
 owner:
-  name: Gulliver
-  job: "SW Engineer"
-  bio: "Works in LGE"
+  avatar: logo.png
+  name: gulliver's development
+  job: "걸리버 개발기"
   email: "taejukim.me.gmail.com"
   disqus-shortname: "xownsla"
-  facebook: "xownsla"
+  facebook: "tj.kim.94402"
   github: "taejukim"
