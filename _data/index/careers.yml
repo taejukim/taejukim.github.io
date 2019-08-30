@@ -1,6 +1,6 @@
 # careers section data
 # if you don't have language feature(language.yml is empty), ignore "i18n" items
 - name: LG Electronics
-  link: https://www.lg.com/
+  link: https://www.lge.com/
   date: April 2012 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
   job: SW Engineer

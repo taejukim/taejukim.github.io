@@ -3,10 +3,10 @@
 # Site wide configuration
 ####################################
 #
-title: Gulliver's Development
-email: taejukim.me@gmail.com
+title: TAEJU.KIM
+email: me@taeju.kim
 description: ..
-url: https://gulliv.ml
+url: http://taeju.kim
 keywords: ["blog", "jekyll"]
 google_analytics_id: UA-137518392-1
 
@@ -35,9 +35,9 @@ kramdown:
 #
 owner:
   avatar: logo.png
-  name: gulliver's development
-  job: "걸리버 개발기"
-  email: "taejukim.me.gmail.com"
+  name: TAEJU.KIM
+  job: "enginner"
+  email: "me@taeju.kim"
   disqus-shortname: "xownsla"
   facebook: "tj.kim.94402"
   github: "taejukim"
