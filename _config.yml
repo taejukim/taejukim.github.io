@@ -1,53 +1,54 @@
-#
-###################################
-# Site wide configuration
-####################################
-#
+
+# SEO settings
 title: TAEJU.KIM
 email: me@taeju.kim
 description: ..
 url: https://blog.taeju.kim
 keywords: ["blog", "jekyll"]
 google_analytics_id: UA-146764841-1
+# baseurl: null
 
-# <!-- Global site tag (gtag.js) - Google Analytics -->
-# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146764841-1"></script>
-# <script>
-#   window.dataLayer = window.dataLayer || [];
-#   function gtag(){dataLayer.push(arguments);}
-#   gtag('js', new Date());
+google_analytics: UA-146764841-1
+repo: http://github.com/taejukim
+disqus_shortname: "xownsla"
 
-#   gtag('config', 'UA-146764841-1');
-# </script>
+# Build settings
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : pygments
 
-#
-###################################
-# Jekyll configuration
-####################################
-#
-timezone:          Asia/Seoul
-markdown:          kramdown
-highlighter:       rouge
-excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+paginate: 4
+paginate_path: "/page/:num/"
+comments: true
 
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+source: source
+destination: _site
 
-#
-###################################
-# Site Owner configuration
-####################################
-#
-owner:
-  avatar: logo.png
-  name: TAEJU.KIM
-  job: "Enginner"
-  email: "me@taeju.kim"
-  disqus-shortname: "xownsla"
-  facebook: "tj.kim.94402"
-  github: "taejukim"
+# Sass configuration
+sass:
+  sass_dir: assets/scss
+  style: compressed # expanded
+
+# Author settings
+author:
+  name     : Taeju.Kim
+  job      : SW Engineer
+  # bio      : ""
+  thumb    : /images/author.png
+  email    : me@taeju.kim
+  url      : http://blog.taeju.kim
+  github   : http://github.com/taeju.kim
+  facebook : http://facebook.com/taejukim.me
+
+gems:
+  - bourbon
+  - jekyll-paginate
+
+# navbar pages
+navbar:
+  - slug : about
+    title: About
+  - slug : blog
+    title: Blog
+
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
