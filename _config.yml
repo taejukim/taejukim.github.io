@@ -25,7 +25,7 @@ google_analytics_id: UA-146764841-1
 # Jekyll configuration
 ####################################
 #
-timezone:          Asia/Seoul
+timezone:          Asia/Seoul 
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
@@ -44,10 +44,10 @@ kramdown:
 ####################################
 #
 owner:
-  avatar: logo.png
-  name: TAEJU.KIM
-  job: "Enginner"
+  # avatar: logo.png
+  name: "Taeju Kim"
+  job: "SW Enginner"
   email: "me@taeju.kim"
   disqus-shortname: "xownsla"
-  facebook: "tj.kim.94402"
+  # facebook: "tj.kim.94402"
   github: "taejukim"
