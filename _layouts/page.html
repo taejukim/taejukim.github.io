@@ -2,20 +2,20 @@
 layout: default
 ---
 
-  <div id="page">
-    <header class="page-header">
-      <h2>{{ page.title }}</h2>
-    </header>
+<div class='o-wrapper'>
 
-    <article class="page-content">
-      {{ content }}
-    </article>
+  <div class='o-grid'>
+    <div class='o-grid__col'>
+      <article class='c-post'>
+        <h1 class='c-post__title u-text-center'>{{ page.title }}</h1>
 
+        <div class='c-content'>
+          {% include page-image.html %}
 
-  </div><!-- end page content -->
+          {{ content }}
+        </div>
+      </article>
+    </div>
+  </div>
 
-
-  {% if site.owner.disqus-shortname and page.comments == true %}
-  <div id="disqus_thread"></div>
-  {% include disqus.html %}
-  {% endif %}
+</div>

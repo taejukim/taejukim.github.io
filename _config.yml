@@ -1,53 +1,48 @@
+# Welcome to Jekyll!
 #
-###################################
-# Site wide configuration
-####################################
-#
-title: TAEJU.KIM
-email: me@taeju.kim
-description: ..
-url: https://blog.taeju.kim
-keywords: ["blog", "jekyll"]
-google_analytics_id: UA-146764841-1
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# <!-- Global site tag (gtag.js) - Google Analytics -->
-# <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146764841-1"></script>
-# <script>
-#   window.dataLayer = window.dataLayer || [];
-#   function gtag(){dataLayer.push(arguments);}
-#   gtag('js', new Date());
+# Site settings
+title:       Type
+email:       ''
+description: ''
+baseurl:     '' # The subpath of your site, e.g. /blog
+url:         'https://type-jekyll.aspirethemes.com/' # The base hostname & protocol for your site
+twitter:     ''
+github:      ''
+instagram:   ''
+facebook:    ''
 
-#   gtag('config', 'UA-146764841-1');
-# </script>
+markdown:  kramdown
+permalink: pretty
+paginate:  10
 
-#
-###################################
-# Jekyll configuration
-####################################
-#
-timezone:          Asia/Seoul 
-markdown:          kramdown
-highlighter:       rouge
-excerpt_separator: <!--more-->
-permalink:         /articles/:year-:month/:title
+sass:
+  style: compressed
 
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  enable_coderay: false
+plugins:
+  - jekyll-paginate
+  - jekyll/tagging
 
-#
-###################################
-# Site Owner configuration
-####################################
-#
-owner:
-  # avatar: logo.png
-  name: "Taeju Kim"
-  job: "SW Enginner"
-  email: "me@taeju.kim"
-  disqus-shortname: "xownsla"
-  # facebook: "tj.kim.94402"
-  github: "taejukim"
+include:
+  - _pages
+
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
+
+# Pages path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext

@@ -1,71 +1,213 @@
-# Update 07/09/2018
+# Type: Minimal and Clean Free Jekyll Theme
 
-I'm planning to refactor Leonids theme!!!
+<img alt="Type: Minimal and Clean Free Jekyll Theme" src="https://user-images.githubusercontent.com/626005/63093493-c3daa880-bf65-11e9-860e-da88047cce24.png">
 
-The goal is really simple: make documentation more intuitive and deployment simpler!!!
+- [Configurations](#configurations)
+- [Deployment](#deployment)
+- [Posts](#posts)
+- [Pages](#pages)
+- [Navigation](#navigation)
+- [Disqus Comments](#disqus-comments)
+- [Google Analytics](#google-analytics)
+- [Social Media Links](#social-media-links)
+- [Update favicon](#update-favicon)
 
-Here is the plan:
+### Configurations
 
-| Version | Description | Date |
-| --- | --- | --- |
-| 1.1 | Jekyll version deployable with gem | 07/15/2018 |
-| 1.2 | New features: Pagination, Prev/Next post | 07/22/2018 |
-| 2.0 | Gatsby or Vuepress version (vote in Issues) | who knows... |
+Type theme comes with different customizations in the `_config.yml` file:
 
-As the project was and will be designed to improve your writing experience, only documentation, gem, deployment process with CI relevant PRs are acceptable in the future.
+```sh
+title:       Type
+email:       ''
+description: ''
+baseurl:     '' # The subpath of your site, e.g. /blog
+url:         '' # The base hostname & protocol for your site
+twitter:     ''
+github:      ''
+instagram:   ''
+facebook:    ''
 
-I want you to know how much I value your support.
+markdown:  kramdown
+permalink: pretty
+paginate:  60
 
-Share it to your timeline!
+sass:
+  style: compressed
 
-# Update 05/06/2016
+gems:
+  - jekyll-paginate
+  - jekyll/tagging
 
-Important! It's better to download the gzipped files instead of forking the repo. I would really appreciate if you could give me a star. 😁
+include:
+  - _pages
 
-This project is under MIT license, so feel free to make it your own.
+exclude:
+  - vendor
+  - Gemfile
+  - Gemfile.lock
 
-# Leonids Jekyll Themes
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
 
-**[Leonids](http://renyuanz.github.io/leonids)** is a clean Jekyll theme perfect for powering your GitHub hosted blog.
-
-## What is Leonids?
-
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Simple and clear permalink structure.
-* Support for Disqus Comments.
-* Support for multi-authors.
-* **And** the Leonids (/ˈliːənɪdz/ lee-ə-nidz) are a prolific meteor shower associated with the comet [Tempel-Tuttle](https://en.wikipedia.org/wiki/55P/Tempel%E2%80%93Tuttle).
-
-See a [demo](http://renyuanz.github.io/leonids/) hosted on GitHub.
-
-## Quick setup
-
+# Pages path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
 ```
-git clone https://github.com/renyuanz/leonids
-cd leonids
-jekyll server
+
+### Deployment
+
+To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` to start the Jekyll server.
+
+I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
+
+### Posts
+
+To create a new post, you can create a new markdown file inside the `_posts` directory by following the [recommended file structure](https://jekyllrb.com/docs/posts/#creating-post-files).
+
+The following is a post file with different configurations you can add as an example:
+
+```sh
+---
+layout: post
+title: Welcome to Jekyll!
+featured: true
+tags: [frontpage, jekyll, blog]
+image: '/images/welcome.jpg'
+---
 ```
 
-Check out your awesome blog at `http://localhost:4000` and Cheers!
+You can set the author, featured or not, tags, and the post image.
 
-## Running with Docker
+The `featured` key is to mark the post as a featured post, this will add a simple star icon (*) to the postcard.
 
+To keep things more organized, add post images to **/images/pages** directory, and add page images to **/images/pages** directory.
+
+To create a draft post, create the post file under the **_drafts** directory, and you can find more information at [Working with Drafts](http://jekyllrb.com/docs/drafts/).
+
+For tags, try to not add space between two words, for example, `Ruby on Rails`, could be something like (`ruby-on-rails`, `Ruby_on_Rails`, or `Ruby-on-Rails`).
+
+Note that tags are not working with GitHub Pages, that's because the used [jekyll-tagging
+](https://github.com/pattex/jekyll-tagging) plugin is not [whitelisted](https://pages.github.com/versions/) by GitHub.
+
+To make this work, I use [Netlify.com](https://www.netlify.com/) for deployment.
+
+### Pages
+
+To create a new page, just create a new markdown file inside the `_pages` directory.
+
+The following is the `about.md` file that you can find as an example included in the theme with the configurations you can set.
+
+```sh
+---
+layout: page
+title: About
+image: '/images/pages/about.jpeg'
+---
 ```
-docker run --rm -it --volume=$PWD:/srv/jekyll -p 4000:4000 jekyll/jekyll:pages jekyll serve --watch --force_polling
+
+Things you can change are: `title` and `image` path.
+
+
+### Navigation
+
+The navigation on the sidebar will automatically include all the links to the pages you have created.
+
+### Disqus Comments
+
+Maxima Theme comes with Disqus comments enabled.
+
+Open `_includes/disqus.html` file, and change the `aspirethemes` value on line 15 with your [Disqus account shortname](https://help.disqus.com/customer/portal/articles/466208).
+
+```js
+s.src = '//aspirethemes-demo.disqus.com/embed.js';
 ```
 
-## Resume Page by [@Skn0tt](https://github.com/Skn0tt)
-Leonids features a simple resume page. It is divided up into five sections:
+So, if your Disqus shortname is `exampleone`, the final code above should be
 
-* Bio (Edit \_data/index/careers.yml)
-* Education (Edit \_data/index/education.yml)
-* Skills (Edit \_data/index/skills.yml)
-* Projects (Edit \_data/index/projects.yml)
-* About (Edit \_includes/sections/about.html)
+```js
+s.src = '//exampleone.disqus.com/embed.js';
+```
 
-You can put all your info into these files, and they will be featured on the resume page.
+That's all you need to setup Disqus from the theme side. If you get any issue regarding that comments are unable to load. First, make sure you have [registered your website with Disqus (Step 1)](https://help.disqus.com/customer/portal/articles/466182-publisher-quick-start-guide)
 
-## TODO
+And also check [Disqus troubleshooting guide](https://help.disqus.com/customer/portal/articles/472007-i-m-receiving-the-message-%22we-were-unable-to-load-disqus-%22) if you still have issues.
 
-- [ ] Redesign categories page. Ref: [dribbble: blog category section By Ilja Miskov](https://dribbble.com/shots/2274792-Blog-Category-Selection)
-- [ ] Multi languages support.
+### Google Analytics
+
+To integrate Google Analytics, open `_includes/analytics.html`, and add your Google Analytics code.
+
+### Social Media Links
+
+Social media links included in `_includes/footer.html` file.
+
+The theme is using [Evil Icons](http://evil-icons.io/), which contains very simple and clean icons. The following is a list of the social media icons to use:
+
+Twitter
+
+```html
+<span data-icon='ei-sc-twitter' data-size='s'></span>
+```
+
+Facebook
+
+```html
+<span data-icon='ei-sc-facebook' data-size='s'></span>
+```
+
+Instagram
+
+```html
+<span data-icon='ei-sc-instagram' data-size='s'></span>
+```
+
+Pinterest
+
+```html
+<span data-icon='ei-sc-pinterest' data-size='s'></span>
+```
+
+Vimeo
+
+```html
+<span data-icon='ei-sc-vimeo' data-size='s'></span>
+```
+
+Google Plus
+
+```html
+<span data-icon='ei-sc-google-plus' data-size='s'></span>
+```
+
+SoundCloud
+
+```html
+<span data-icon='ei-sc-soundcloud' data-size='s'></span>
+```
+
+Tumblr
+
+```html
+<span data-icon='ei-sc-tumblr' data-size='s'></span>
+```
+
+Youtube
+
+```html
+<span data-icon='ei-sc-youtube' data-size='s'></span>
+```
+
+### Update favicon
+
+You can find the current favicon (favicon.ico) inside the theme root directory, just replace it with your new favicon.
+
+
+### Aspire Themes
+
+👉 Visit [**aspirethemes.com**](http://bit.ly/type-jekyll-github-link) for more Jekyll, Ghost, and WordPress themes.
+
+<img alt="Aspire Themes" src="https://user-images.githubusercontent.com/626005/63092640-afe17780-bf62-11e9-9ea9-546489bb282c.png">
