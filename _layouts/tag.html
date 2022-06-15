@@ -1,27 +1,43 @@
 ---
 layout: default
+title: tags
+permalink: /tag/
+type: page
 ---
-<div id="navbar" class="container">
-  <h5><a id="link-back" href="/">Main</a></h5>
+{% assign esc_title="{{ p.title }}" %}
+{% assign esc_date="{{ p.date }}" %}
+{% assign esc_tagname="{{ hash }}" %}
+
+<div id="post-list">
+  <h2>{{page.title}}</h2>
+  <hr>
+  <h3 id="{{ category | first }}"> {{ esc_tagname }} </h3>
+  <ul>
+    <li v-for="p in posts" v-if="p.tags.indexOf(hash) != -1">
+      <time>
+        {{ esc_date }}
+      </time>
+      <a v-bind:href="p.url">{{ esc_title }}</a>
+    </li>
+  </ul>
 </div>
 
-<div id="cover" class="container"
-     {% if page.image %}style="background-image: url({{ page.image }});"{% endif %}>
-  <div>
-    <h1>{{ page.title | default: page.name }}</h1>
-    <p>All Posts in <strong>{{ page.name }}</strong></p>
-  </div>
-</div>
+<script>
+  var hash = decodeURI(window.location.hash.substr(1));
 
-<div id="content" class="container">
-  <div id="tag-content" role="main">
-    <ul id="post-list">
-      {% for post in site.posts %}
-      {% if post.tags contains page.name %}
-      {% include item.html %}
-      {% endif %}
-      {% endfor %}
-    </ul>
-    {% include pagination.html %}
-  </div>
-</div>
+  var postList = new Vue({
+    el: '#post-list',
+    data: {
+      posts: []
+    }
+  });
+
+  axios.get('/posts.json')
+  .then(function (response) {
+    postList.posts = response.data.posts;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+</script>
+

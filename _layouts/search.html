@@ -1,6 +1,11 @@
 ---
 layout: default
+title: Search
+permalink: /search/
+type: page
 ---
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css">
 <script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
 <div class="common-header search">
   <div class="search">
@@ -96,7 +101,7 @@ layout: default
         ranges[i][1] += i * 7 + 3;
       }
       for (const range of ranges) {
-        value = value.insert('<b>', range[0]).insert('</b>', range[1]);
+        value = value.insert(range[0], '<b>').insert(range[1], '</b>');
       }
       return value;
     },

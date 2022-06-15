@@ -24,3 +24,13 @@
 .tags-cloud > div{
   background: #202020;
 }
+
+.common-header {
+  margin:3.5rem, 0, .5rem;
+
+}
+
+.highlight {
+  margin-left: 0px;
+  margin-right: 0px;
+}
