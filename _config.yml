@@ -1,0 +1,28 @@
+# Setup
+title:               blog.taeju.kim
+tagline:             'A Jekyll theme'
+description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:                 https://blog.taeju.kim
+baseurl:             ''
+paginate:            5
+permalink:           pretty
+
+# About/contact
+author:
+  name:              taeju.kim
+  url:               https://blog.taeju.kim
+  email:             iam@taeju.kim
+
+# Gems
+plugins:
+  - jekyll-paginate
+
+# Custom vars
+version:             1.0.0
+google_analytics_id: 319600826
+
+category_dir: category/
+tag_dir: tag/
+search_dir: search/
+
+excerpt_separator: ""
