@@ -6,7 +6,7 @@ type: page
 ---
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.1/css/all.min.css">
-<script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/simple-jekyll-search.min.js"></script>
 <div class="common-header search">
   <div class="search">
     <i class="fas fa-search fa-fw"></i>
@@ -33,7 +33,7 @@ type: page
   window.simpleJekyllSearch = new SimpleJekyllSearch({
     searchInput: document.getElementById('search-input'),
     resultsContainer: document.getElementById('search-results'),
-    json: '{{ site.baseurl }}/search.json',
+    json: '/assets/json/search.json',
     searchResultTemplate: `
       <li>
         <div>
