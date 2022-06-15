@@ -24,7 +24,7 @@ include:
 
 # Custom vars
 version:             1.0.0
-google_analytics_id: 319600826
+google_analytics_id: UA-158697523-1
 
 category_dir: category/
 tag_dir: tag/
