@@ -1,7 +1,7 @@
 # Setup
 title:               blog.taeju.kim
 tagline:             "TJ's blog"
-description:         '<img src="/assets/images/photo.png">blog.taeju.kim'
+description:         '<a href="/"><div style="display: inline-block;"><img src="/assets/images/photo.png"></div><div style="display: inline-block;"><h2>TJ</h2></div></a>'
 url:                 https://blog.taeju.kim
 paginate:            5
 permalink:           pretty
