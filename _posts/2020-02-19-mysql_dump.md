@@ -5,7 +5,8 @@ category: DB
 tag: Mysql
 ---
 
-Mysql DB 백업을 하기 위해 `mysqldump`를 사용한다.</br>
+Mysql DB 백업을 하기 위해 `mysqldump`를 사용한다
+  
 기본적인 사용법은 아래와 같다.
 {% highlight shell %}
 mysqldump -u[username] -p[password] [db_name] > db.sql
